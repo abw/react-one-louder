@@ -18,7 +18,7 @@
     "dev": "vite",
     "build": "vite build",
     "build:docs": "vite build --outDir docs --config vite.docs.config.js",
-    "preview": "vite preview",
+    "preview": "vite preview --outDir docs --config vite.docs.config.js",
     "test": "vitest"
   },
   "dependencies": {
