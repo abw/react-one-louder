@@ -45,8 +45,8 @@ const Amplifier = ({ volume=10 }) =>
 export default Amplifier
 ```
 
-If you don't explicitly provide a volume property when you use it then it
-defaults to 10.
+If you don't explicitly provide a `volume` property when you use it then it
+defaults to `10`.
 
 ```jsx
 import Amplifier from './Amplifier.jsx'
@@ -61,7 +61,7 @@ The output would be:
 Amplifier volume is 10
 ```
 
-Of course you can always provide a volume property to override the default value.
+Of course you can always provide a `volume` property to override the default value.
 
 ```jsx
 import Amplifier from './Amplifier.jsx'
@@ -76,7 +76,7 @@ Now the output is:
 Amplifier volume is 9
 ```
 
-That's all very well as long as you remember to set the volume explicitly
+That's all very well as long as you remember to set the `volume` explicitly
 every time. Apart from being easy to forget, it's also hard to change. If
 you've got lots of places where you're using this component and one day
 someone decides to change the volume across the whole site then you've got
