@@ -1,0 +1,198 @@
+@import "config/all.scss";
+@import "components/all.scss";
+
+$brand-hue: $brown-hue;
+$brand-color: $brown;
+
+html {
+  font-family: $font-sans;
+}
+body {
+  background-color: mix($brand-color, $white, 15%)
+}
+h1 {
+  color: $brand-color;
+  margin: 1rem 0;
+}
+#layout {
+  min-width: 320px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 0;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  aside {
+    flex-basis: 20rem;
+    flex-grow: 1;
+    margin-right: 1rem;
+    padding: 1rem;
+    border: 1px solid hsl($brand-hue, 20%, 90%);
+    background-color: rgba(#fff, 0.6);
+    h4 {
+
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    ul.menu {
+      padding: 0;
+      margin: 0 0 2rem 0;
+      list-style: none;
+      li {
+        margin: 0;
+        padding: 0;
+        a {
+          display: block;
+          background-color: rgba(#fff, 0.6);
+          padding: 0.25rem 0.5rem;
+          margin-bottom: 0.25rem;
+          &:hover {
+            background-color: rgba(#fff, 0.8);
+          }
+          &.active {
+            background-color: rgba(#fff, 1);
+          }
+        }
+      }
+    }
+  }
+  main {
+    position: relative;
+    flex-basis: 0;
+    flex-grow: 999;
+    padding: 2rem;
+    padding-bottom: 200px;
+    background-color: rgba(#fff, 0.9);
+    border: 1px solid hsl($brand-hue, 20%, 90%);
+    h1:first-child {
+      line-height: 1;
+      margin: 0 0 0.5em 0;
+    }
+  }
+}
+
+p.intro {
+  font-size: 1.25em;
+}
+p.subintro {
+  font-size: 1.25em;
+}
+
+ul.menu {
+  padding: 1rem;
+  list-style: disc;
+}
+
+ul.menu.large {
+  font-size: 1.25rem;
+}
+
+li {
+  margin-bottom: 1rem;
+}
+
+
+.pic-side {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 3rem;
+  img {
+    margin-top: 1rem;
+  }
+  & > div.blurb {
+    padding-right: 2rem;
+  }
+}
+.badger {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 0;
+  text-align: center;
+  img {
+    width: 100px;
+  }
+  .caption {
+    padding: 0.5rem 0;
+  }
+}
+
+a {
+  font-weight: 500;
+  color: hsl($brand-hue, 70%, 40%);
+  text-decoration: inherit;
+  &:hover {
+    color: hsl($brand-hue, 90%, 30%);
+  }
+}
+
+code.code {
+  background-color: hsl($brand-hue, 30%, 95%);
+  border: 1px solid hsl($brand-hue, 40%, 90%);
+  color: hsl($brand-hue, 90%, 30%);
+  padding: 0 3px;
+  border-radius: 2px;
+}
+
+
+.app {
+  max-width: 80ch;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+img.logo {
+  width: 200px;
+}
+
+div.example {
+  h4 {
+    font-size: 0.8rem;
+    margin: 0;
+    text-align: right;
+    color: white;
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+ //   margin-bottom: -2rem;
+ //   color: white;
+ //   margin-right: 1rem;
+  }
+  .explanation {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    // margin-bottom: -0.5rem;
+  }
+  .code {
+    position: relative;
+  }
+  .output {
+    position: relative;
+    // margin-top: 1rem;
+    background-color: hsl($brand-hue, 40%, 20%);
+    color: hsl($brand-hue, 10%, 90%);
+    padding: 1rem 2rem;
+    font-size: 1.2em;
+  }
+}
+
+a.read-on {
+  display: block;
+  text-align: right;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+section {
+  border: 1px solid $brand-color;
+  background-color: mix($brand-color, $white, 10%);
+  text-align: left;
+  padding: 1rem;
+  margin: 1rem;
+  h1 {
+    font-size: $size-largish;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+}
