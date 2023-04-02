@@ -1,8 +1,15 @@
 import React from 'react'
+import Link from '../site/Link.jsx'
 
 const Home = () =>
-  <div className="home">
+  <div className="">
     <h1>@abw/react-one-louder</h1>
+    <a href="https://github.com/abw/react-one-louder" className="github">
+      <img
+        src="https://github.githubassets.com/favicons/favicon.svg"
+        alt="Github repository"
+      />
+    </a>
     <div className="pic-side">
       <img src="/one-louder.svg"/>
       <div className="blurb">
@@ -27,15 +34,15 @@ const Home = () =>
     <div>
       <ul className="large menu">
         <li>
-          <a href="getting-started">Getting Started</a> - adding the module
+          <Link to="getting-started" text="Getting Started"/> - adding the module
           to your project.
         </li>
         <li>
-          <a href="themed-components">Themed Components</a> - writing and
+          <Link to="themed-components" text="Themed Components"/> - writing and
           using themed components.
         </li>
         <li>
-          <a href="defining-themes">Defining Themes</a> - different ways
+          <Link to="defining-themes" text="Defining Themes"/> - different ways
           to define themes.
         </li>
       </ul>

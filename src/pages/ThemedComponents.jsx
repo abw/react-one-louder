@@ -11,6 +11,7 @@ import DefaultThemedAmpSource from '../example/DefaultThemedAmp.jsx?raw'
 import CustomThemedAmp from '../example/CustomThemedAmp.jsx'
 import CustomThemedAmpSource from '../example/CustomThemedAmp.jsx?raw'
 import Example from '../site/Example.jsx'
+import Link from '../site/Link.jsx'
 
 
 const ThemedComponents = () =>
@@ -76,7 +77,10 @@ const ThemedComponents = () =>
       </p>
     </Example>
 
-    <a href="defining-themes" className="read-on">Read more about defining themes...</a>
+    <Link
+      to="/defining-themes" className="read-on"
+      text="Read more about defining themes..."
+    />
   </div>
 
 export default ThemedComponents

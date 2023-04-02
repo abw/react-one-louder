@@ -4,6 +4,7 @@ import Example from '../site/Example.jsx'
 import ThemedAmpSource from '../example/ThemedAmplifier.jsx?raw'
 import CustomThemedAmpSource from '../example/CustomThemedAmp.jsx?raw'
 import CustomThemedAmp from '../example/CustomThemedAmp.jsx'
+import Link from '../site/Link.jsx'
 
 const GettingStarted = () =>
   <div>
@@ -46,7 +47,10 @@ $ pnpm add @abw/one-louder
       </p>
     </Example>
 
-    <a href="themed-components" className="read-on">Read more about themed components...</a>
+    <Link
+      to="/themed-components" className="read-on"
+      text="Read more about themed components..."
+    />
   </div>
 
 export default GettingStarted
