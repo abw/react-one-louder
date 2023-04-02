@@ -12,7 +12,7 @@ export default defineConfig({
   },
   build: {
     minify: true,
-    sourcemap: false,
+    sourcemap: true,
     lib: {
       entry: 'lib/index.jsx',
       name: '@abw/react-one-louder',
