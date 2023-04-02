@@ -34,6 +34,10 @@ const Home = () =>
           <a href="themed-components">Themed Components</a> - writing and
           using themed components.
         </li>
+        <li>
+          <a href="defining-themes">Defining Themes</a> - different ways
+          to define themes.
+        </li>
       </ul>
     </div>
     <div className="badger">
