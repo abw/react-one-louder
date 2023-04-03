@@ -6,17 +6,23 @@ import GettingStarted from '../pages/GettingStarted.jsx'
 import ThemedComponents from '../pages/ThemedComponents.jsx'
 import DefiningThemes from '../pages/DefiningThemes.jsx'
 
-export const Router = createBrowserRouter([
+export const Router = createBrowserRouter(
+  [
+    {
+      path:     '/',
+      element:  <Layout/>,
+      children: [
+        { path: '/',                  element: <Home/> },
+        { path: 'getting-started',    element: <GettingStarted/> },
+        { path: 'themed-components',  element: <ThemedComponents/> },
+        { path: 'defining-themes',    element: <DefiningThemes/> },
+      ]
+    },
+  ],
   {
-    path:     '/',
-    element:  <Layout/>,
-    children: [
-      { path: '/',                  element: <Home/> },
-      { path: 'getting-started',    element: <GettingStarted/> },
-      { path: 'themed-components',  element: <ThemedComponents/> },
-      { path: 'defining-themes',    element: <DefiningThemes/> },
-    ]
-  },
-])
+    // basename: '/react-one-louder',
+    basename: import.meta.env.BASE_URL
+  }
+)
 
 export default Router
