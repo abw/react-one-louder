@@ -1,10 +1,10 @@
 import React from 'react'
-import { createBrowserRouter } from 'react-router-dom'
 import Layout from './Layout.jsx'
 import Home from '../pages/Home.jsx'
 import GettingStarted from '../pages/GettingStarted.jsx'
 import ThemedComponents from '../pages/ThemedComponents.jsx'
 import DefiningThemes from '../pages/DefiningThemes.jsx'
+import { createBrowserRouter } from 'react-router-dom'
 
 export const Router = createBrowserRouter(
   [
@@ -20,7 +20,6 @@ export const Router = createBrowserRouter(
     },
   ],
   {
-    // basename: '/react-one-louder',
     basename: import.meta.env.BASE_URL
   }
 )

@@ -12,7 +12,7 @@ $violet-hue:  275 !default;
 $magenta-hue: 315 !default;
 $pink-hue:    330 !default;
 
-$black:   #fff !default;
+$black:   #000 !default;
 $red:     hsl($red-hue, 100%, 40%) !default;
 $brown:   hsl($brown-hue, 50%, 40%) !default;
 $orange:  hsl($orange-hue, 100%, 45%) !default;
@@ -27,3 +27,12 @@ $violet:  hsl($violet-hue, 50%, 50%) !default;
 $magenta: hsl($magenta-hue, 50%, 45%) !default;
 $pink:    hsl($pink-hue, 60%, 50%) !default;
 $white:   #fff !default;
+
+$brand-hue:       $brown-hue !default;
+$brand-color:     $brown !default;
+$brand-darkish:   darken($brand-color, 10%) !default;
+$brand-dark:      darken($brand-color, 20%) !default;
+$brand-darker:    darken($brand-color, 30%) !default;
+$brand-lightish:  lighten($brand-color, 10%) !default;
+$brand-light:     lighten($brand-color, 20%) !default;
+$brand-lighter:   lighten($brand-color, 30%) !default;
