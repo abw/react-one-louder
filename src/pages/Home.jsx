@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from '../site/Link.jsx'
+import { imgUrl } from '../site/Utils.jsx'
 
 const Home = () =>
   <div className="">
@@ -11,7 +12,7 @@ const Home = () =>
       />
     </a>
     <div className="pic-side">
-      <img src="/one-louder.svg"/>
+      <img src={imgUrl('one-louder.svg')}/>
       <div className="blurb">
         <p className="intro">
           <code className="code">react-one-louder</code> is a simple React
@@ -48,7 +49,7 @@ const Home = () =>
       </ul>
     </div>
     <div className="badger">
-      <img src="/badger.svg" alt="badger"/>
+      <img src={imgUrl('badger.svg')} alt="badger"/>
       <div className="caption">
         Built by Badgers
       </div>
