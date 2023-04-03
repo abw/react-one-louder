@@ -11,6 +11,11 @@ your guitar... where can you go from there? Where? Nowhere. Exactly. What we
 do is if we need that extra push over the cliff, you know what we do? Put it
 up to eleven. Eleven. Exactly. One louder.
 
+## Documentation
+
+Read the [full documentation](https://abw.github.io/react-one-louder/) for
+full details.  The abridged version is included below.
+
 ## Getting Started
 
 Add the `@abw/react-one-louder` module to your project using your favourite
@@ -32,7 +37,6 @@ You can then import the modules and start using them.
 ```jsx
 import { Theme, Themed } from '@abw/react-one-louder'
 ```
-
 
 ## Themed Components
 
