@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@abw/badger-timestamp': ^1.0.4
   '@testing-library/jest-dom': ^5.16.5
   '@testing-library/react': ^14.0.0
   '@types/react': ^18.0.28
@@ -22,6 +23,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
 
 devDependencies:
+  '@abw/badger-timestamp': 1.0.4
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 14.0.0_biqbaboplfbrettd7655fr4n2y
   '@types/react': 18.0.32
@@ -37,6 +39,16 @@ devDependencies:
   vitest: 0.29.8_jsdom@21.1.1+sass@1.60.0
 
 packages:
+
+  /@abw/badger-timestamp/1.0.4:
+    resolution: {integrity: sha512-7JBcF9rxwihiiEG1UQlv1/jdntg8BJmzTADAj5psTWbRNvDh4XHkdeoVnbf0nRCq08q5472mx8wbpgNzrwb2RQ==}
+    dependencies:
+      '@abw/badger-utils': 1.0.19
+    dev: true
+
+  /@abw/badger-utils/1.0.19:
+    resolution: {integrity: sha512-rwkfAbhyS4M17Bwu/3tSiSW3kxR2n/43xUc2F6tfmwwd0BZ2NsP457GYHUYdhsxBXTyDc3YNIE18+HnG/Hl5/g==}
+    dev: true
 
   /@adobe/css-tools/4.2.0:
     resolution: {integrity: sha512-E09FiIft46CmH5Qnjb0wsW54/YQd69LsxeKUOWawmws1XWvyFGURnAChH0mlr7YPFR1ofwvUQfcL0J3lMxXqPA==}
