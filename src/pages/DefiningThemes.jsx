@@ -1,4 +1,3 @@
-
 import React from 'react'
 import SimpleThemeSource from '../example/SimpleTheme.jsx?raw'
 import ThemeFunctionSource from '../example/ThemeFunction.jsx?raw'
