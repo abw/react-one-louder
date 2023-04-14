@@ -52,7 +52,7 @@ describe(
       () => {
         const MyTheme = {
           Amplifier: props => props.quiet
-            ? { volume: 5,  color: 'black' }
+            ? { volume: props.volume ?? 5,  color: 'black' }
             : { volume: 11, color: 'none more black' }
         }
         render(

@@ -18,22 +18,20 @@ const ThemedComponents = () =>
     <h1>Themed Components</h1>
 
     <Example code={AmpSource}>
-      Consider a simple React component like this <code className="code">Amplifier</code>.
+      Consider a simple React component like this <code>Amplifier</code>.
     </Example>
 
     <Example Element={DefaultAmp} code={DefaultAmpSource}>
       <p>
-        If you don&apos;t explicitly provide
-        a <code className="code">volume</code> property when you use it then
-        it defaults to 10.
+        If you don&apos;t explicitly provide a <code>volume</code> property
+        when you use it then it defaults to 10.
       </p>
     </Example>
 
     <Example Element={AmpWithVolume} code={AmpWithVolumeSource}>
       <p>
-        Of course you can always provide
-        a <code className="code">volume</code> property to override the
-        default value.
+        Of course you can always provide a <code>volume</code> property to
+        override the default value.
       </p>
     </Example>
 
@@ -47,11 +45,11 @@ const ThemedComponents = () =>
         change.
       </p>
       <p>
-        This is where the <code className="code">Themed</code> function can
-        be used.  Instead of exporting your bare component, wrap it up in a call
-        to <code className="code">Themed</code> and provide a name that you
-        can reference it by.  In most cases, this will be the same name as
-        the component, but it doesn&apos;t have to be.
+        This is where the <code>Themed</code> function can be used. Instead
+        of exporting your bare component, wrap it up in a call to{' '}
+        <code>Themed</code> and provide a name that you can reference it by.
+        In most cases, this will be the same name as the component, but it
+        doesn&apos;t have to be.
       </p>
     </Example>
 
@@ -64,15 +62,17 @@ const ThemedComponents = () =>
     <Example Element={CustomThemedAmp} code={CustomThemedAmpSource}>
       <p>
         When you need that extra push over the cliff, you can define a{' '}
-        <code className="code">Theme.Provider</code>.  This can be anywhere in
-        your code but it&apos;s usually best to put it somewhere near the
-        &quot;top&quot; of your application so that it encloses all the
-        components that want to use it.
+        <code>Theme.Provider</code>.  This can be anywhere in your code but
+        it&apos;s usually best to put it somewhere near the &quot;top&quot; of
+        your application so that it encloses all the components that want to
+        use it.
+      </p>
+      <p>
         You provide it with a new set of defaults for any components that
         you&apos;re using and they will automatically be applied to your
-        <code className="code">Themed</code> components matching the name.
-        You can still provide an explicit <code className="code">volume</code>{' '}
-        when you use the component if you need to.
+        <code>Themed</code> components matching the name. You can still
+        provide an explicit <code>volume</code> when you use the component
+        if you need to.
       </p>
     </Example>
 

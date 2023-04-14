@@ -7,15 +7,15 @@ import Amplifier from './ThemedAmplifier.jsx'
 
 const MyTheme = {
   Amplifier: props => props.quiet
-    ? { volume: 5,  color: 'black' }
-    : { volume: 11, color: 'none more black' }
+    ? { volume: 5,  color: props.color ?? 'black' }
+    : { volume: 11, color: props.color ?? 'none more black' }
 }
 
 const YourApplication = () =>
   <Theme.Provider {...MyTheme}>
     <Amplifier/>
     <Amplifier quiet/>
-    <Amplifier quiet volume={6}/>
+    <Amplifier quiet volume={6} color='green'/>
   </Theme.Provider>
 {/* END */}
 export default YourApplication
