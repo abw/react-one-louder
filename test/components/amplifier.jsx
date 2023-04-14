@@ -52,8 +52,31 @@ describe(
       () => {
         const MyTheme = {
           Amplifier: props => props.quiet
-            ? { volume: props.volume ?? 5,  color: 'black' }
-            : { volume: 11, color: 'none more black' }
+            ? { volume: 5 }
+            : { volume: 11 }
+        }
+        render(
+          <Theme.Provider {...MyTheme}>
+            <Amplifier/>
+            <Amplifier id={2} quiet/>
+            <Amplifier id={3} quiet volume={6}/>
+          </Theme.Provider>
+        )
+        expect(screen.getByText(/Amplifier #1/))
+          .toHaveTextContent('Amplifier #1 volume is 11')
+        expect(screen.getByText(/Amplifier #2/))
+          .toHaveTextContent('Amplifier #2 volume is 5')
+        expect(screen.getByText(/Amplifier #3/))
+          .toHaveTextContent('Amplifier #3 volume is 5')
+      }
+    )
+    it(
+      'theming defaults',
+      () => {
+        const MyTheme = {
+          Amplifier: props => props.quiet
+            ? { volume: props.volume ?? 5 }
+            : { volume: props.volume ?? 11 }
         }
         render(
           <Theme.Provider {...MyTheme}>

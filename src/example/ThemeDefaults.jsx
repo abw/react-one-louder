@@ -7,8 +7,8 @@ import Amplifier from './ThemedAmplifier.jsx'
 
 const MyTheme = {
   Amplifier: props => props.quiet
-    ? { volume: 5  }
-    : { volume: 11 }
+    ? { volume: props.volume ?? 5  }
+    : { volume: props.volume ?? 11 }
 }
 
 const YourApplication = () =>
