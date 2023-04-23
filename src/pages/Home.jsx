@@ -46,6 +46,10 @@ const Home = () =>
           <Link to="defining-themes" text="Defining Themes"/> - different ways
           to define themes.
         </li>
+        <li>
+          <Link to="component-substitution" text="Component Substitution"/> - swapping one
+          component out for another.
+        </li>
       </ul>
     </div>
     <div className="badger">
