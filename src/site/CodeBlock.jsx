@@ -13,13 +13,6 @@ SyntaxHighlighter.registerLanguage('css', css)
 SyntaxHighlighter.registerLanguage('scss', scss)
 SyntaxHighlighter.registerLanguage('bash', bash)
 
-export const OLDCodeBlock = ({children, language='jsx'}) =>
-  <div className="codeblock">
-    <SyntaxHighlighter language={language} style={vscDarkPlus} showLineNumbers={true}>
-      {children}
-    </SyntaxHighlighter>
-  </div>
-
 export const CodeBlock = ({code, children, language='jsx', caption}) => {
   const [copied, setCopied] = useState(false)
   const copy = () => {
@@ -30,12 +23,14 @@ export const CodeBlock = ({code, children, language='jsx', caption}) => {
   return (
     <div className="codeblock">
       {Boolean(caption) && <h4 className="caption">{caption}</h4>}
-      <div
-        className={`clipboard ${copied ? 'copied' : ''}`}
-        onClick={copy}
-      >
-        { copied ? 'Copied' : 'Copy' }
-      </div>
+      {Boolean(code) &&
+        <div
+          className={`clipboard ${copied ? 'copied' : ''}`}
+          onClick={copy}
+        >
+          { copied ? 'Copied' : 'Copy' }
+        </div>
+      }
       <SyntaxHighlighter language={language} style={vscDarkPlus} showLineNumbers={true}>
         {code||children}
       </SyntaxHighlighter>

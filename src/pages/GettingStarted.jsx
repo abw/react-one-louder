@@ -1,6 +1,7 @@
 import React from 'react'
 import CodeBlock from '../site/CodeBlock.jsx'
 import Example from '../site/Example.jsx'
+import ImportSrc from '../example/Import.jsx?raw'
 import ThemedAmpSource from '../example/ThemedAmplifier.jsx?raw'
 import CustomThemedAmpSource from '../example/CustomThemedAmp.jsx?raw'
 import CustomThemedAmp from '../example/CustomThemedAmp.jsx'
@@ -27,9 +28,7 @@ $ pnpm add @abw/one-louder
     <p>
       You can then import the modules and start using them.
     </p>
-    <CodeBlock>
-      {`import { Theme, Themed } from '@abw/react-one-louder'`}
-    </CodeBlock>
+    <CodeBlock code={ImportSrc}/>
 
     <h2>Themed Component</h2>
     <p>
