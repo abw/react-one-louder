@@ -213,3 +213,7 @@ Amplifier volume is 11
 Amplifier volume is 5
 Amplifier volume is 6
 ```
+
+## Author
+
+Andy Wardley https://github.com/abw
