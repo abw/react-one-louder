@@ -28,8 +28,10 @@ $magenta: hsl($magenta-hue, 50%, 45%) !default;
 $pink:    hsl($pink-hue, 60%, 50%) !default;
 $white:   #fff !default;
 
-$brand-hue:       $brown-hue !default;
-$brand-color:     $brown !default;
+// $brand-hue:       $brown-hue !default;
+// $brand-color:     $brown !default;
+$brand-hue:       $navy-hue !default;
+$brand-color:     $navy !default;
 $brand-darkish:   darken($brand-color, 10%) !default;
 $brand-dark:      darken($brand-color, 20%) !default;
 $brand-darker:    darken($brand-color, 30%) !default;

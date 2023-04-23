@@ -10,7 +10,9 @@ import React from 'react'
 
 const MyTheme = {
   Amplifier: props =>
-    <Marshall volume={ props.volume ?? (props.quiet ? 5 : 11) }/>
+    <Marshall
+      volume={ props.volume ?? (props.quiet ? 5 : 11) }
+    />
 }
 
 const OnStage = () =>

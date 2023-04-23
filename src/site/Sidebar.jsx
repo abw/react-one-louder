@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from './Link.jsx'
 import { date, version } from './Utils.jsx'
+import { ReactComponent as Abw } from '../svg/abw.svg'
 
 const Sidebar = () =>
   <>
@@ -15,14 +16,18 @@ const Sidebar = () =>
       </ul>
     </div>
     <footer>
-      <div>
-        Version {version}
+      <div className="notes">
+        <div>
+          Version {version}
+        </div>
+        <a href="https://github.com/abw">
+          <Abw/>
+        </a>
+        <div>
+          {date}
+        </div>
       </div>
-      <div>
-        {date}
-      </div>
-    </footer>
-  </>
+    </footer> </>
 
 
 export default Sidebar
