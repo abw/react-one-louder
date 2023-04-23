@@ -43,8 +43,10 @@ a {
   font-weight: 500;
   color: $brand-color;
   text-decoration: inherit;
+  transition: all 1s;
   &:hover {
-    color: $brand-darkish;
+    transition: all 0.2s;
+    color: $hover-color;
   }
 }
 

@@ -34,14 +34,17 @@ const ComponentSubstitution = () =>
         code.  The theming engine takes care of swapping one component for
         another.
       </p>
+    </Example>
+    <div className="note">
+      <h4>Note</h4>
       <p>
-        NOTE: the function is called with 3 arguments.  The first is the object
+        The function is called with 3 arguments.  The first is the object
         of properties, shown here as <code>props</code> .  The second is any{' '}
         <code>ref</code> that should be forwarded to the component.  The third
         is the complete theming <code>context</code> in case you need to look up
         any other theming rules.
       </p>
-    </Example>
+    </div>
 
     <Example Element={ComponentSwap2} code={ComponentSwap2Src} caption="OnStage.jsx">
       <p>

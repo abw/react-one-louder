@@ -33,14 +33,14 @@ const DefiningThemes = () =>
         the theming function looks to see if the <code>quiet</code> property
         has been specified. If it has then it sets the <code>volume</code> to{' '}
         <code>5</code> with no exceptions.  Setting the <code>volume</code>{' '}
-        to <code>6</code>, as shown on line 13, has no effect.
+        to <code>6</code>, as shown on line 15, has no effect.
       </p>
       <p>
         You can write the theming function to accept any values specified as
         properties if you prefer.  In this next example the{' '}
         <code>volume</code> is only set in cases where an explicit property
         is not provided.  Now we can override the volume if necessary as
-        show on line 13.
+        show on line 15.
       </p>
     </Example>
     <Link

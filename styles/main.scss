@@ -46,9 +46,10 @@ body {
           border-left: 5px solid white;
           &:hover {
             background-color: rgba(#fff, 0.8);
-            border-left-color: hsl($brand-hue, 40%, 80%);
+            border-left-color: hsl($hover-hue, 40%, 80%);
           }
           &.active {
+            color: hsl($brand-hue, 90%, 30%);
             background-color: rgba(#fff, 1);
             border-left-color: hsl($brand-hue, 60%, 60%);
           }
@@ -60,17 +61,13 @@ body {
       a {
         font-size: 0;
         width: 6rem;
-        transition: color 300ms;
-        &:hover {
-          color: $brand-darkish;
-        }
       }
       img {
         height: 2rem;
       }
       .notes {
         font-size: 0.8rem;
-        color: $brand-light;
+        color: $brand-color;
         display: flex;
         align-items: flex-end;
         justify-content: space-between;
@@ -141,13 +138,17 @@ img.logo {
 }
 div.codeblock {
   font-size: 0.9rem;
+  pre {
+    border-radius: 0.25rem;
+  }
 }
 div.example {
   h4 {
     font-size: 0.8rem;
     margin: 0;
     text-align: right;
-    color: white;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.8);
     position: absolute;
     top: 0.5rem;
     right: 1rem;
@@ -164,7 +165,8 @@ div.example {
     background-color: hsl($brand-hue, 40%, 20%);
     color: hsl($brand-hue, 10%, 90%);
     padding: 1rem 2rem;
-    font-size: 1.2em;
+    font-size: 1.25em;
+    border-radius: 0.25rem;
   }
 }
 a.read-on {
@@ -179,6 +181,22 @@ a.github {
   right: 1rem;
   width: 2rem;
   height: 2rem;
+}
+
+div.note {
+  margin: 1rem 0;
+  background-color: hsl($blue-hue, 30%, 95%);
+  padding: 1rem;
+  color: hsl($blue-hue, 50%, 40%);
+  border: 1px solid hsl($blue-hue, 50%, 80%);
+  border-radius: 0.25rem;
+  // box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+  h4 {
+    color: hsl($blue-hue, 80%, 30%);
+  }
+  p {
+    margin: 0;
+  }
 }
 
 @media only screen and (max-width: 960px) {

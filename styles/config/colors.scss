@@ -32,6 +32,8 @@ $white:   #fff !default;
 // $brand-color:     $brown !default;
 $brand-hue:       $navy-hue !default;
 $brand-color:     $navy !default;
+$hover-hue:       $violet-hue !default;
+$hover-color:     $violet !default;
 $brand-darkish:   darken($brand-color, 10%) !default;
 $brand-dark:      darken($brand-color, 20%) !default;
 $brand-darker:    darken($brand-color, 30%) !default;
