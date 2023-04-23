@@ -31,14 +31,14 @@ $ pnpm add @abw/one-louder
       {`import { Theme, Themed } from '@abw/react-one-louder'`}
     </CodeBlock>
 
-    <Example code={ThemedAmpSource}>
+    <Example code={ThemedAmpSource} caption="Amplifier.jsx">
       <p>
         This is how you define a <code className="code">Themed</code> component.
         In this example, the default <code className="code">volume</code> is 10.
       </p>
     </Example>
 
-    <Example Element={CustomThemedAmp} code={CustomThemedAmpSource}>
+    <Example Element={CustomThemedAmp} code={CustomThemedAmpSource} caption="AmplifierExample.jsx">
       <p>
         This is how you define a <code className="code">Theme.Provider</code>.
         Now the default <code className="code">volume</code> for

@@ -1,21 +1,21 @@
-import Amplifier from './ThemedAmplifier.jsx'
 import { Theme } from '../../lib/index.jsx'
+import Amplifier from './ThemedAmplifier.jsx'
+import Marshall from './MarshallAmplifier.jsx'
 
 {/* START */}
 import React from 'react'
 // PRETEND: import Amplifier from './Amplifier.jsx'
+// PRETEND: import Marshall from './Marshall.jsx'
 // PRETEND: import { Theme } from '@abw/react-one-louder'
 
 const MyTheme = {
-  Amplifier: {
-    volume: 11
-  }
+  Amplifier: [ Marshall ]
 }
 
-const Festival = () =>
+const OnStage = () =>
   <Theme.Provider {...MyTheme}>
     <Amplifier/>
-    <Amplifier volume={9}/>
+    <Amplifier volume={11}/>
   </Theme.Provider>
 
-export default Festival
+export default OnStage

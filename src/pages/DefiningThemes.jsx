@@ -5,18 +5,19 @@ import ThemeFunction from '../example/ThemeFunction.jsx'
 import ThemeDefaultsSource from '../example/ThemeDefaults.jsx?raw'
 import ThemeDefaults from '../example/ThemeDefaults.jsx'
 import Example from '../site/Example.jsx'
+import Link from '../site/Link.jsx'
 
 const DefiningThemes = () =>
   <div>
     <h1>Defining Themes</h1>
 
-    <Example code={SimpleThemeSource}>
+    <Example code={SimpleThemeSource} caption="OnStage.jsx">
       We&apos;ve already seen the typical case where you define your theme
       using default properties.  You can include theming options for as
       many components as you need to.
     </Example>
 
-    <Example Element={ThemeFunction} code={ThemeFunctionSource}>
+    <Example Element={ThemeFunction} code={ThemeFunctionSource} caption="OnStage.jsx">
       <p>
         You can also theme a component using a function.  The function will
         be passed any properties that have been specified with the component.
@@ -25,7 +26,7 @@ const DefiningThemes = () =>
       </p>
     </Example>
 
-    <Example Element={ThemeDefaults} code={ThemeDefaultsSource}>
+    <Example Element={ThemeDefaults} code={ThemeDefaultsSource} caption="OnStage.jsx">
       <p>
         It&apos;s up to you if your function should override any properties
         specified with the component or accept them.  In the previous example
@@ -42,7 +43,10 @@ const DefiningThemes = () =>
         show on line 13.
       </p>
     </Example>
-
+    <Link
+      to="/component-substitution" className="read-on"
+      text="Component substitution..."
+    />
 
   </div>
 

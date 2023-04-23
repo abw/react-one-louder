@@ -11,6 +11,7 @@ const Sidebar = () =>
         <li><Link to="getting-started" text="Getting Started"/></li>
         <li><Link to="themed-components" text="Themed Components"/></li>
         <li><Link to="defining-themes" text="Defining Themes"/></li>
+        <li><Link to="component-substitution" text="Component Substitution"/></li>
       </ul>
     </div>
     <footer>

@@ -17,25 +17,25 @@ const ThemedComponents = () =>
   <div>
     <h1>Themed Components</h1>
 
-    <Example code={AmpSource}>
+    <Example code={AmpSource} caption="Amplifier.jsx">
       Consider a simple React component like this <code>Amplifier</code>.
     </Example>
 
-    <Example Element={DefaultAmp} code={DefaultAmpSource}>
+    <Example Element={DefaultAmp} code={DefaultAmpSource} caption="OnStage.jsx">
       <p>
         If you don&apos;t explicitly provide a <code>volume</code> property
         when you use it then it defaults to 10.
       </p>
     </Example>
 
-    <Example Element={AmpWithVolume} code={AmpWithVolumeSource}>
+    <Example Element={AmpWithVolume} code={AmpWithVolumeSource} caption="OnStage.jsx">
       <p>
         Of course you can always provide a <code>volume</code> property to
         override the default value.
       </p>
     </Example>
 
-    <Example code={ThemedAmpSource}>
+    <Example code={ThemedAmpSource} caption="Amplifier.jsx">
       <p>
         That&apos;s all very well as long as you remember to set the volume
         explicitly every time.  Apart from being easy to forget, it&apos;s also
@@ -53,13 +53,13 @@ const ThemedComponents = () =>
       </p>
     </Example>
 
-    <Example Element={DefaultThemedAmp} code={DefaultThemedAmpSource}>
+    <Example Element={DefaultThemedAmp} code={DefaultThemedAmpSource} caption="OnStage.jsx">
       <p>
         You can still use it just like you did before.
       </p>
     </Example>
 
-    <Example Element={CustomThemedAmp} code={CustomThemedAmpSource}>
+    <Example Element={CustomThemedAmp} code={CustomThemedAmpSource} caption="Festival.jsx">
       <p>
         When you need that extra push over the cliff, you can define a{' '}
         <code>Theme.Provider</code>.  This can be anywhere in your code but

@@ -1,7 +1,7 @@
-import React from 'react'
 import { Themed } from '../../lib/index.jsx'
 
 {/* START */}
+import React from 'react'
 // PRETEND: import { Themed } from '@abw/react-one-louder'
 
 const Amplifier = ({ volume=10 }) =>
