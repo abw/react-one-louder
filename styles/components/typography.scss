@@ -6,10 +6,12 @@ h1 {
   margin: 1rem 0;
 }
 h2 {
-  font-size: $size-larger;
+  font-size: $size-large;
   line-height: 1.2;
   font-weight: bold;
   color: $brand-dark;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
 }
 h3 {
   font-size: $size-large;
@@ -31,6 +33,9 @@ p.intro {
 }
 p.subintro {
   font-size: 1.25em;
+}
+h2 + p {
+  margin-top: 1rem;
 }
 ul.menu {
   padding: 1rem;
