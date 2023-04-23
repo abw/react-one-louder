@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import React from 'react'
 import Context from './Context.jsx'
-import merger from './Merger.js'
+import Render from './Render.jsx'
 
 export const Themer = (options) => {
   // The Provider is the wrapper that goes somewhere near the top
@@ -21,10 +21,21 @@ export const Themer = (options) => {
   // The Component is used to wrap the implementation of a component and has
   // a second argument identifying which kind of component it is, e.g.
   // "Amplifier" to use the custom property configuration for an Amplifier
-  const Component = (Implementation, spec=Implementation.displayName||Implementation.name) => React.forwardRef(
+  const Component = (
+    Implementation,
+    spec=Implementation.displayName||Implementation.name
+  ) => React.forwardRef(
     (props, ref) =>
       <Context.Consumer>
-        {context => <Implementation {...merger(context, spec, props) } ref={ref}/>}
+        { context =>
+          <Render
+            Implementation={Implementation}
+            context={context}
+            spec={spec}
+            props={props}
+            ref={ref}
+          />
+        }
       </Context.Consumer>
   )
 
