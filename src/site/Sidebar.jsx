@@ -27,7 +27,8 @@ const Sidebar = () =>
           {date}
         </div>
       </div>
-    </footer> </>
+    </footer>
+  </>
 
 
 export default Sidebar
