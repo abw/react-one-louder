@@ -1,36 +1,54 @@
 import React from 'react'
-import { isArray, isFunction, isObject } from './Utils.js'
+import { isArray, isFunction, isObject } from '@abw/badger-utils'
+import {
+  PropsObject,
+  RenderComponent,
+  RenderSpec,
+  RenderSpecFunction,
+  RenderSpecInputFunction,
+  RenderSpecInputOrPair,
+  RenderSpecPair,
+  ThemeContext
+} from './types'
+
+export type RenderProps = {
+  context: ThemeContext,
+  spec: RenderSpec,
+  Implementation: RenderComponent,
+  props: PropsObject,
+  ref: React.ForwardedRef<unknown>
+}
 
 export function Render({
   context={},
   Implementation,
-  spec=false,
+  spec=null,
   props={},
   ref
-}) {
+}: RenderProps): React.ReactElement {
   if (! spec) {
     return <Implementation {...props} ref={ref}/>
   }
-  let mergedProps = { }
+  const mergedProps: PropsObject = { }
 
   // If the spec is a function then we call it with the context,
   // otherwise we assume it's the name of an entry in theme context
-  let input = isFunction(spec)
-    ? spec(context)
-    : context[spec]
+  let input: RenderSpecInputOrPair = isFunction(spec)
+    ? (spec as RenderSpecInputFunction)(context)
+    : context[spec as string]
 
   // if we've got an array then the first argument is a new Implementation
   // component and the second is the set of default props or function
   if (isArray(input)) {
-    Implementation = input[0]
-    input = input[1]
+    Implementation = (input as RenderSpecPair)[0]
+    input = (input as RenderSpecPair)[1]
   }
 
   if (isFunction(input)) {
     // If it's a function then we call it with the original props, any ref
     // that needs to be forwarded and the context.  It can returned a React
     // element or an object of replacement/additional properties.
-    const result = input(props, ref, context)
+    const result = (input as RenderSpecFunction)(props, ref, context)
     if (React.isValidElement(result)) {
       return result
     }

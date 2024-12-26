@@ -1,9 +1,9 @@
 import React from 'react'
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import Amplifier from '../lib/Amplifier.jsx'
-import Marshall from '../lib/Marshall.jsx'
-import { Theme } from '../../lib/index.jsx'
+import Amplifier from '../lib/Amplifier'
+import Marshall from '../lib/Marshall'
+import { Theme } from '../../lib/index'
 
 describe(
   'App',

@@ -1,7 +1,9 @@
 import React from 'react'
-import { Themed } from '../../lib/index.jsx'
+import { Themed } from '../../lib/index.js'
 
 const Marshall = ({ id=1, volume=10 }) =>
   <div>Marshall amplifier #{id} volume is {volume}</div>
 
-export default Themed(Marshall, 'Marshall')
+const ThemedMarshall = Themed(Marshall, 'Marshall')
+
+export default ThemedMarshall
