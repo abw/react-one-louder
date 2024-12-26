@@ -1,5 +1,5 @@
 import Amplifier from './ThemedAmplifier.jsx'
-import { Theme } from '../../lib/index.jsx'
+import { Theme } from '../../lib/index'
 
 {/* START */}
 import React from 'react'

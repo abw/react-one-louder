@@ -1,4 +1,4 @@
-import { Theme } from '../../lib/index.jsx'
+import { Theme } from '../../lib/index'
 import Amplifier from './ThemedAmplifier.jsx'
 import Marshall from './MarshallAmplifier.jsx'
 

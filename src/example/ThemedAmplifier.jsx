@@ -1,4 +1,4 @@
-import { Themed } from '../../lib/index.jsx'
+import { Themed } from '../../lib/index'
 
 {/* START */}
 import React from 'react'
