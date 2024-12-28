@@ -25,3 +25,17 @@ export type RenderSpecFunction = (
   context: PropsObject
 ) => PropsObject | React.ReactElement
 
+export type RenderProps = {
+  context: ThemeContext,
+  spec: RenderSpec,
+  Implementation: RenderComponent,
+  props: PropsObject,
+  ref: React.ForwardedRef<unknown>
+}
+
+export type ThemedType = {
+  Context: unknown,
+  Provider: unknown,
+  Consumer: unknown,
+  Component: unknown
+}

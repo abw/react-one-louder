@@ -23,6 +23,31 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      "indent": [
+        "error",
+        2,
+        {
+          "offsetTernaryExpressions": true,
+          "SwitchCase": 1
+        }
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "quotes": [
+        "warn",
+        "single",
+        {
+          "avoidEscape": true,
+          "allowTemplateLiterals": true
+        }
+      ],
+      "react/prop-types": 0,
+      "semi": [
+        "error",
+        "never"
+      ]
     },
   },
 )

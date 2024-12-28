@@ -1,19 +1,19 @@
 import React from 'react'
 import Context from './Context'
 import Render from './Render'
-import { PropsObject, RenderComponent, ThemeContext } from './types'
+import { PropsObject, RenderComponent, ThemeContext, ThemedType } from './types'
 
-const Themer = (options: ThemeContext = { }) => {
+const Themer = (options: ThemeContext = { }): ThemedType => {
   // The Provider is the wrapper that goes somewhere near the top
   // level of your app, along with custom configuration properties
-  const Provider = ({children, ...props}) =>
+  const Provider = ({ children, ...props }: { children: React.ReactNode }) =>
     <Context.Provider value={{ ...options, ...props }}>
       {children}
     </Context.Provider>
 
   // The Consumer is a HOC which wraps another component constructor and
   // mixes configuration properties into the properties passed to it.
-  const Consumer = Component => props =>
+  const Consumer = (Component: RenderComponent) => (props: PropsObject) =>
     <Context.Consumer>
       { (context: PropsObject = {} ) => <Component {...context} {...props} context={context}/> }
     </Context.Consumer>

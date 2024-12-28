@@ -2,22 +2,12 @@ import React from 'react'
 import { isArray, isFunction, isObject } from '@abw/badger-utils'
 import {
   PropsObject,
-  RenderComponent,
-  RenderSpec,
+  RenderProps,
   RenderSpecFunction,
   RenderSpecInputFunction,
   RenderSpecInputOrPair,
   RenderSpecPair,
-  ThemeContext
 } from './types'
-
-export type RenderProps = {
-  context: ThemeContext,
-  spec: RenderSpec,
-  Implementation: RenderComponent,
-  props: PropsObject,
-  ref: React.ForwardedRef<unknown>
-}
 
 export function Render({
   context={},
