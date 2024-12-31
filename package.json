@@ -27,8 +27,9 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "build:docs": "vite build --outDir docs --config vite.docs.config.js",
+    "build": "$npm_execpath build:lib && $npm_execpath build:docs",
+    "build:lib": "tsc -b && vite build",
+    "build:docs": "vite build --config vite.docs.js",
     "preview": "vite preview --outDir docs --config vite.docs.config.js",
     "test": "vitest --ui",
     "XXlint": "eslint 'lib/**/*.{js,jsx}' 'src/**/*.{js,jsx}'",

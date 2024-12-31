@@ -5,6 +5,12 @@ import svgr from 'vite-plugin-svgr'
 
 export default defineConfig({
   plugins: [react(), svgr()],
-  base: '/react-one-louder/',
-  define
+  base: '/react-one-louder',
+  define,
+  root: 'src',
+  envDir: '../',
+  build: {
+    emptyOutDir: true,
+    outDir: '../docs'
+  },
 })
