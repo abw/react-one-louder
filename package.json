@@ -24,7 +24,7 @@
   "scripts": {
     "dev": "vite --config vite.docs.js",
     "build": "$npm_execpath build:lib && $npm_execpath build:docs",
-    "build:lib": "&& vite build",
+    "build:lib": "vite build",
     "build:docs": "vite build --config vite.docs.js",
     "preview": "vite preview --config vite.docs.js",
     "test": "vitest --ui",
