@@ -1,0 +1,69 @@
+import { Snippet, Example } from '@abw/badger-website'
+import Variants from '@/snippets/Variants.jsx'
+import VariantsSrc from '@/snippets/Variants.jsx?raw'
+import Variants2 from '@/snippets/Variants2.jsx'
+import Variants2Src from '@/snippets/Variants2.jsx?raw'
+import Variants3 from '@/snippets/Variants3.jsx'
+import Variants3Src from '@/snippets/Variants3.jsx?raw'
+
+# Variants
+
+The `variants` function provides an easy way to define multiple variants for
+a component.
+
+For example, we might want to define different `Amplifier` configurations
+based on the `musician` property.
+
+For the `Amplifier` theme options, we
+call the `variants()` function passing it an object.  The keys in the object
+are properties that can be set on the component.  The corresponding values
+are the properties that will be added.  So if the `musician` is set to `nigel`
+then we set the `volume` property to `11`, the `name` to `Nigel` and the
+`instrument` to guitar.
+
+<Example
+  Component={Variants}
+  code={VariantsSrc}
+  caption="Variants"
+  expand
+/>
+
+As usual, these only provide default values for the component.  You can still
+override them by specifying explicit property values.  So if Derek is
+performing a blistering bass solo in free-form jazz exploration in front of
+a festival crowd then he can still crank his amp up to 11, as shown on line
+32.
+
+Here's the enhanced `Amplifier` component for this example.
+
+<Snippet
+  file="NamedAmplifier.jsx"
+/>
+
+## Multiple Variants
+
+You can define multiple variants.  For example, we might want to separate
+the properties associated with a `musician` from those relating to the
+`intensity`.
+
+<Example
+  Component={Variants2}
+  code={Variants2Src}
+  caption="Multiple Variants"
+  expand
+/>
+
+## Variant Shortcuts
+
+You can also use boolean `true` values (which you get from React if you
+specify a property without a value) as a shortcut to set properties.
+
+In this example we use `loud`, `loudish` and `quiet` as boolean properties
+that are shortcuts to set the `volume` property.
+
+<Example
+  Component={Variants3}
+  code={Variants3Src}
+  caption="Variant Shortcuts"
+  expand
+/>

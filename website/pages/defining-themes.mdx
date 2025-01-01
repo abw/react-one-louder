@@ -1,0 +1,56 @@
+import SimpleThemeSource from '@/snippets/SimpleTheme.jsx?raw'
+import ThemeFunctionSrc from '@/snippets/ThemeFunction.jsx?raw'
+import ThemeFunction from '@/snippets/ThemeFunction.jsx'
+import ThemeDefaultsSrc from '@/snippets/ThemeDefaults.jsx?raw'
+import ThemeDefaults from '@/snippets/ThemeDefaults.jsx'
+import { Snippet, Example } from '@abw/badger-website'
+
+# Defining Themes
+
+We've already seen the typical case where you define your theme
+using default properties.  You can include theming options for as
+many components as you need to.
+
+<Snippet
+  file="SimpleTheme.jsx"
+  caption="Simple Theme"
+  expand
+/>
+
+## Theming Function
+
+You can also theme a component using a function.  The function will
+be passed any properties that have been specified with the component.
+It should return a set of properties that will be applied to the
+component.
+
+In this example, the `Amplifier` can set a `quiet` property which will set
+the volume to `5`.  Otherwise it's set to `11`.  Notice how the function is
+now overriding any `volume` property that is set on the component.
+
+<Example
+  Component={ThemeFunction}
+  code={ThemeFunctionSrc}
+  caption="Theming Function"
+  expand
+/>
+
+## Default Properties
+
+I's up to you if your function should override any properties specified with
+the component or accept them.  In the previous example the theming function
+looks to see if the `quiet` property has been specified. If it has then it
+sets the `volume` to `5` with no exceptions.  Setting the `volume` to `6`, as
+shown on line 15, has no effect.
+
+You can write the theming function to accept any values specified as
+properties if you prefer.  In this next example the `volume` is only set in
+cases where an explicit property is not provided.  Now we can override the
+volume if necessary as show on line 15.
+
+<Example
+  Component={ThemeDefaults}
+  code={ThemeDefaultsSrc}
+  caption="Theming Function"
+  expand
+/>

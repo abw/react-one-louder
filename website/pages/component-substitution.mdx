@@ -1,0 +1,89 @@
+import MarshallSrc from '@/snippets/MarshallAmplifier.jsx?raw'
+import ComponentSwap from '@/snippets/ComponentSwap.jsx'
+import ComponentSwapSrc from '@/snippets/ComponentSwap.jsx?raw'
+import ComponentSwap2 from '@/snippets/ComponentSwap2.jsx'
+import ComponentSwap2Src from '@/snippets/ComponentSwap2.jsx?raw'
+import ComponentSwap3 from '@/snippets/ComponentSwap3.jsx'
+import ComponentSwap3Src from '@/snippets/ComponentSwap3.jsx?raw'
+import ComponentSwap4 from '@/snippets/ComponentSwap4.jsx'
+import ComponentSwap4Src from '@/snippets/ComponentSwap4.jsx?raw'
+import { Snippet, Example } from '@abw/badger-website'
+import { Info } from '@abw/badger-react-ui'
+
+# Component Substitution
+
+You can use the theming engine to substitute one component for another.
+Consider the case where we have a special kind of amplifier.
+
+<Snippet
+  file="MarshallAmplifier.jsx"
+  caption="Marshall.jsx"
+  expand
+/>
+
+Your band has just signed a lucrative sponsorship deal with an amplifier
+manufacturer.  Wherever you were using an `Amplifier` you want to swap it
+out for the new branded `Marshall`.
+
+## Render Function
+
+You can define your theming function to render the new component and
+return the result.  You don't need to change any of your application
+code.  The theming engine takes care of swapping one component for
+another.
+
+<Example
+  Component={ComponentSwap}
+  code={ComponentSwapSrc}
+  caption="Render Component"
+  expand
+/>
+
+<Info
+  title="Note"
+  icon="info"
+  border
+  className="mar-t-4"
+>
+  The function is called with 3 arguments.  The first is the object
+  of properties, shown here as `props` .  The second is any
+  `ref` that should be forwarded to the component.  The third
+  is the complete theming `context` in case you need to look up
+  any other theming rules.
+</Info>
+
+## Substitute Component
+
+As a shortcut you can define the theme entry to be an array containing
+the substitute component as the first element.  This is ideal for those
+cases where you just want to substitute one component for another but
+with all the other properties remaining the same.
+
+<Example
+  Component={ComponentSwap2}
+  code={ComponentSwap2Src}
+  caption="Substitute Component"
+  expand
+/>
+
+## Substitute With Defaults
+
+You can also provide a set of default properties as the second element.
+
+<Example
+  Component={ComponentSwap3}
+  code={ComponentSwap3Src}
+  caption="Substitute With Defaults"
+  expand
+/>
+
+## Substitute With Function
+
+Or the second element can be a theming function.
+
+<Example
+  Component={ComponentSwap4}
+  code={ComponentSwap4Src}
+  caption="Substitute With Function"
+  expand
+/>

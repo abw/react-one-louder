@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "react",
+    "paths": {
+      "@/lib/*":        ["./lib/*"],
+      "@/web/*":        ["./website/*"],
+      "@/styles/*":     ["./website/styles/*"],
+      "@/page/*":       ["./website/page/*"],
+      "@/site/*":       ["./website/site/*"],
+      "@/snippets/*":   ["./website/snippets/*"],
+      "@/svg/*":        ["./website/svg/*"],
+    }
+  }
+}

@@ -1,0 +1,91 @@
+import { Snippet, Example } from '@abw/badger-website'
+import DefaultAmp from '@/snippets/DefaultAmp.jsx'
+import DefaultAmpSrc from '@/snippets/DefaultAmp.jsx?raw'
+import AmpWithVolume from '@/snippets/AmpWithVolume.jsx'
+import AmpWithVolumeSrc from '@/snippets/AmpWithVolume.jsx?raw'
+import DefaultThemedAmp from '@/snippets/DefaultThemedAmp.jsx'
+import DefaultThemedAmpSrc from '@/snippets/DefaultThemedAmp.jsx?raw'
+import CustomThemedAmp    from '@/snippets/CustomThemedAmp.jsx'
+import CustomThemedAmpSrc from '@/snippets/CustomThemedAmp.jsx?raw'
+
+# Theming Components
+
+Consider a simple React component like this `Amplifier`
+
+<Snippet
+  file="Amplifier.jsx"
+  expand
+/>
+
+If you don't explicitly provide a `volume` property when you use it then it
+defaults to 10.
+
+<Example
+  Component={DefaultAmp}
+  code={DefaultAmpSrc}
+  caption="Default Volume"
+  undent={2}
+  expand
+/>
+
+Of course you can always provide a `volume` property to override the default
+value.
+
+<Example
+  Component={AmpWithVolume}
+  code={AmpWithVolumeSrc}
+  caption="Explicit Volume"
+  undent={2}
+  expand
+/>
+
+## Themed Components
+
+That's all very well as long as you remember to set the volume explicitly
+every time.  Apart from being easy to forget, it's also hard to change.  If
+you've got lots of places where you're using this component then you've got
+lots of code you need to change if someone decides they want to change the
+volume across the whole site.
+
+This is where the `Themed` function can be used. Instead of exporting your
+original component, wrap it up in a call to `Themed` and provide a name that
+you can reference it by.
+
+In most cases, this will be the same name as the component, but it doesn't
+have to be.
+
+<Snippet
+  file="ThemedAmplifier.jsx"
+/>
+
+You can still use it just like you did before.
+
+<Example
+  Component={DefaultThemedAmp}
+  code={DefaultThemedAmpSrc}
+  caption="Default or Explicit Volume"
+  undent={4}
+  expand
+/>
+
+## Theme Provider
+
+When you need that extra push over the cliff, you can define add a
+`Theme.Provider` to inject new defaults into your themed components.
+This can be anywhere in your code but it's usually best to put it somewhere
+near the "top" of your application so that it encloses all the components
+that want to use it.
+
+You provide it with a new set of defaults for any components that you're
+using and they will automatically be applied to your `Themed` components
+matching the name.
+
+Remember, this only sets the default values for properties.  You can still
+provide an explicit `volume` when you use the component if you need to.
+
+<Example
+  Component={CustomThemedAmp}
+  code={CustomThemedAmpSrc}
+  caption="Festival.jsx"
+  expand
+/>
