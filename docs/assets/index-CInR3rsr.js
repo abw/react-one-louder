@@ -524,7 +524,7 @@ then we set the `,i.jsx(e.code,{children:"volume"})," property to ",i.jsx(e.code
 `,i.jsx(Pt,{Component:oAA,code:AN,caption:"Variants",expand:!0}),`
 `,i.jsx(e.p,{children:`As usual, these only provide default values for the component.  You can still
 override them by specifying explicit property values.  So if Derek is
-performing a blistering bass solo in free-form jazz exploration in front of
+performing a blistering bass solo in a free-form jazz exploration in front of
 a festival crowd then he can still crank his amp up to 11, as shown on line
 32.`}),`
 `,i.jsxs(e.p,{children:["Here's the enhanced ",i.jsx(e.code,{children:"Amplifier"})," component for this example."]}),`
