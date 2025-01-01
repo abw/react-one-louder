@@ -1,13 +1,12 @@
-import Amplifier from './ThemedAmplifier.jsx'
-
-{/* START */}
 import React from 'react'
-// PRETEND: import Amplifier from './Amplifier.jsx'
+import Amplifier from './ThemedAmplifier.jsx'
 
 const OnStage = () =>
   <>
+    {/* START */}
     <Amplifier/>
     <Amplifier volume={9}/>
+    {/* END */}
   </>
 
 export default OnStage

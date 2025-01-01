@@ -16,7 +16,7 @@ const MyMusicApp = () =>
   <Theme.Provider {...MyTheme}>
     <Amplifier/>
     <Amplifier quiet/>
-    <Amplifier quiet volume={6}/>
+    <Amplifier quiet volume={6}/> {/* no effect */}
   </Theme.Provider>
 
 export default MyMusicApp

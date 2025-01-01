@@ -1,6 +1,6 @@
 {
   "name": "@abw/react-one-louder",
-  "version": "0.0.6",
+  "version": "1.0.0-alpha",
   "description": "Theme provider for React components",
   "type": "module",
   "files": [
@@ -26,12 +26,11 @@
     "provider"
   ],
   "scripts": {
-    "devX": "vite",
     "dev": "vite --config vite.docs.js",
     "build": "$npm_execpath build:lib && $npm_execpath build:docs",
     "build:lib": "tsc -b && vite build",
     "build:docs": "vite build --config vite.docs.js",
-    "preview": "vite preview --outDir docs --config vite.docs.config.js",
+    "preview": "vite preview --config vite.docs.js",
     "test": "vitest --ui",
     "XXlint": "eslint 'lib/**/*.{js,jsx}' 'src/**/*.{js,jsx}'",
     "lint": "eslint"

@@ -7,6 +7,7 @@ const GettingStarted = {
     { to: '/theming-components', text: 'Theming Components' },
     { to: '/defining-themes',    text: 'Defining Themes' },
     { to: '/component-substitution',    text: 'Component Substitution' },
+    { to: '/variants',    text: 'Variants' },
   ]
 }
 
