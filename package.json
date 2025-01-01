@@ -1,6 +1,6 @@
 {
   "name": "@abw/react-one-louder",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "Theme provider for React components",
   "type": "module",
   "files": [
