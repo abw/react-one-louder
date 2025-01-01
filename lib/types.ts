@@ -1,3 +1,7 @@
+export type PropsObject = {
+  [key: string]: unknown
+}
+
 export type ContextPropsObject = {
   [key: string]: unknown
 }
