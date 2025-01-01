@@ -1,0 +1,46 @@
+$brand-color: 'teal' !default;
+$brand-hue:   165 !default;
+
+@import "@abw/badger-website/styles/badger-website.scss";
+
+div.hero {
+  grid-template-columns: 1fr 4fr;
+}
+
+blockquote {
+  --border: var(--grey-70);
+  --background: var(--grey-90);
+  border: 1px solid var(--border);
+  // border-left: 0.5rem solid var(--border);
+  background-color: var(--background);
+  margin: 3rem 0;
+  padding: 1rem 2rem;
+  font-size: 1.3rem;
+  p {
+    margin: 0;
+  }
+}
+
+.one-louder-logo {
+  .inside {
+    fill: var(--brand-95);
+  }
+  .outside {
+    fill: var(--brand-30);
+  }
+}
+
+#{$dark-theme} {
+  .one-louder-logo {
+    .inside {
+      fill: var(--brand-20);
+    }
+    .outside {
+      fill: var(--grey40-80);
+    }
+  }
+  blockquote {
+    --border: var(--grey-30);
+    --background: var(--grey-10);
+  }
+}

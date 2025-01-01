@@ -1,0 +1,79 @@
+import { Tabset } from '@abw/badger-react-ui'
+import { Snippet, Example } from '@abw/badger-website'
+import ThemedAmpSrc from '@/snippets/CustomThemedAmp.jsx?raw'
+import ThemedAmp from '@/snippets/CustomThemedAmp.jsx'
+
+# Quick Start
+
+## Installation
+
+Add `@abw/react-one-louder` to your project using your favourite package
+manager.
+
+<Tabset
+  className="mar-t-2"
+  tabs={[
+    {
+      text: 'npm',
+      content:
+        <Snippet
+          file="install/npm.sh"
+          expand
+        />
+    },
+    {
+      text: 'yarn',
+      content:
+        <Snippet
+          file="install/yarn.sh"
+          expand
+        />
+    },
+    {
+      text: 'pnpm',
+      content:
+        <Snippet
+          file="install/pnpm.sh"
+          expand
+        />
+    }
+  ]}
+/>
+
+You can then import the modules and start using them.
+
+<Snippet
+  file="Import.jsx"
+  expand
+/>
+
+## Themed Component
+
+Use the `Themed` function to wrap your component.  Give it a unique name so
+you can reference it later.
+
+In this example, the default `volume` for the `Amplifier` component is 10.
+
+<Snippet
+  file="ThemedAmplifier.jsx"
+  expand
+/>
+
+## Theme Provider
+
+You can then use the `Theme.Provider` as a wrapper around your application
+and provide it with new default properties for your components.
+
+Here we change the default volume for the `Amplifier` component to 11.
+It's one louder.  Note that this only defines the default properties.  If
+you explicitly pass the `volume` property to a component then it'll use
+that instead.
+
+<Example
+  Component={ThemedAmp}
+  code={ThemedAmpSrc}
+  language="jsx"
+  caption="Hello World!"
+  highlightLines="12,15"
+  expand
+/>
