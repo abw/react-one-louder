@@ -1,12 +1,8 @@
 import React from 'react'
 import { isArray, isFunction, isObject } from '@abw/badger-utils'
 import {
-  PropsObject,
-  RenderProps,
-  RenderSpecFunction,
-  RenderSpecInputFunction,
-  RenderSpecInputOrPair,
-  RenderSpecPair,
+  ContextPropsObject, RenderProps, RenderSpecFunction,
+  RenderSpecInputFunction, RenderSpecInputOrPair, RenderSpecPair,
 } from './types'
 
 export function Render({
@@ -19,7 +15,7 @@ export function Render({
   if (! spec) {
     return <Implementation {...props} ref={ref}/>
   }
-  const mergedProps: PropsObject = { }
+  const mergedProps: ContextPropsObject = { }
 
   // If the spec is a function then we call it with the context,
   // otherwise we assume it's the name of an entry in theme context

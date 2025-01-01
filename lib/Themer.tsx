@@ -1,25 +1,30 @@
 import React from 'react'
-import Context from './Context'
 import Render from './Render'
+import Context from './Context'
 import {
-  ContextPropsObject, ContextPropsWithChildren, ContextProvider, ContextProviderValue, ContextProviderWrapper, RenderComponent, ThemeContext
+  ContextPropsObject, RenderComponent, ThemeContext, ThemeContextWithChildren
 } from './types'
 
 
-const Themer = (options: ThemeContext = { }) => {
+const Themer = (options = { }) => {
   // The Provider is the wrapper that goes somewhere near the top
   // level of your app, along with custom configuration properties
-  // const Provider:ContextProviderWrapper = ({ children, ...props }: ContextPropsWithChildren): React.Provider<{ value: object }> =>
-  const Provider: ContextProviderWrapper = ({ children, ...props }: ContextPropsWithChildren): ContextProvider =>
-    <Context.Provider value={{ ...options, ...props }}>
-      {children}
-    </Context.Provider>
+  const Provider = ({ children, ...props }: ThemeContextWithChildren) => {
+    const merged: ThemeContext = { ...options, ...props }
+    return (
+      <Context.Provider value={merged}>
+        {children}
+      </Context.Provider>
+    )
+  }
 
   // The Consumer is a HOC which wraps another component constructor and
   // mixes configuration properties into the properties passed to it.
   const Consumer = (Component: RenderComponent) => (props: ContextPropsObject) =>
     <Context.Consumer>
-      { (context: ContextPropsObject = {} ) => <Component {...context} {...props} context={context}/> }
+      { (context: ContextPropsObject = {} ) =>
+        <Component {...context} {...props} context={context}/>
+      }
     </Context.Consumer>
 
   // The Component is used to wrap the implementation of a component and has
