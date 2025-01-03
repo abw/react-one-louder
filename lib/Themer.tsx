@@ -22,8 +22,9 @@ const Themer = (options = { }) => {
   // mixes configuration properties into the properties passed to it.
   const Consumer = (Component: RenderComponent) => (props: ContextPropsObject) =>
     <Context.Consumer>
-      { (context: ContextPropsObject = {} ) =>
-        <Component {...context} {...props} context={context}/>
+      { (context: ContextPropsObject = {}) =>
+        <Component {...context} {...props}/>
+        // <Component {...context} {...props} context={context}/>
       }
     </Context.Consumer>
 

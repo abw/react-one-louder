@@ -37,6 +37,9 @@ export type RenderSpecInputFunction = (
 
 export type RenderComponent =
   React.ComponentType<ContextPropsObject>
+  // React.ComponentType<object>
+  // React.ComponentType<object & { ref: React.Ref<unknown> }>
+  // React.ComponentType<React.ForwardedRef<object>>
 
 export type RenderSpec =
   RenderSpecInputFunction | null | string
