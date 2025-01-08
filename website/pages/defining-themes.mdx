@@ -4,6 +4,7 @@ import ThemeFunction from '@/snippets/ThemeFunction.jsx'
 import ThemeDefaultsSrc from '@/snippets/ThemeDefaults.jsx?raw'
 import ThemeDefaults from '@/snippets/ThemeDefaults.jsx'
 import { Snippet, Example } from '@abw/badger-website'
+import { Warning } from '@abw/badger-react-ui'
 
 # Defining Themes
 
@@ -21,32 +22,34 @@ many components as you need to.
 
 You can also theme a component using a function.  The function will
 be passed any properties that have been specified with the component.
-It should return a set of properties that will be applied to the
+It should return a new set of properties that will be applied to the
 component.
 
 In this example, the `Amplifier` can set a `quiet` property which will set
 the volume to `5`.  Otherwise it's set to `11`.  Notice how the function is
-now overriding any `volume` property that is set on the component.
+now overriding any `volume` property that is set on the component `props`.
+Setting the volume explicitly has no effect, as seen on line 16.
 
 <Example
   Component={ThemeFunction}
   code={ThemeFunctionSrc}
   caption="Theming Function"
+  highlightLines="8,16"
   expand
 />
 
 ## Default Properties
 
-I's up to you if your function should override any properties specified with
+It's up to you if your function should override any properties specified with
 the component or accept them.  In the previous example the theming function
-looks to see if the `quiet` property has been specified. If it has then it
-sets the `volume` to `5` with no exceptions.  Setting the `volume` to `6`, as
-shown on line 15, has no effect.
+returns a new set of props where the `volume` is set *after* the current
+`props` are included.  This has the effect of overriding any `volume` property
+explicitly set on the component.
 
-You can write the theming function to accept any values specified as
-properties if you prefer.  In this next example the `volume` is only set in
-cases where an explicit property is not provided.  Now we can override the
-volume if necessary as show on line 15.
+Changing the order so that the `volume` is set *first* changes the behaviour
+to give precedence to the explicit property.  The `volume` set from the `quiet`
+property effectively becomes the default value which can still be overridden,
+as show on line 16 in this example.
 
 <Example
   Component={ThemeDefaults}
@@ -54,3 +57,19 @@ volume if necessary as show on line 15.
   caption="Theming Function"
   expand
 />
+
+<Warning
+  icon="exclamation"
+  title="Breaking Change!"
+  className="mar-t-8"
+  border
+>
+  Note that this behaviour is a breaking change between versions 0.x.x and
+  1.x.x.  Previously (version 0.x.x) a theming function would only return the
+  additional properties that it wanted to add and these would always be applied
+  *after* the explicit properties.  Now it must return *all* the properties that
+  it wants to be set on the component.  This new behaviour gives more flexibility
+  in allowing the theming function to add, update or delete properties, and
+  to determine the order in which explicit values and default values should be
+  applied.
+</Warning>
