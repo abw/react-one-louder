@@ -1,72 +1,21 @@
-export type PropsObject = {
-  [key: string]: unknown
+// The type T is an object where the keys are component names that can be
+// themes and the values, T[K] have the type ThemeSpec<T, T[K]> which can be
+// any of:
+//  * an object with default values, e.g. { volume: 11 }
+//  * a function which returns default values, e.g. props => ({ volume: 11 })
+
+export type Themeable<T> = {
+  [K in keyof T]?: ThemeSpec<T, T[K]>
 }
 
-export type ContextPropsObject = {
-  [key: string]: unknown
-}
-
-export type ThemeContext = {
-  [key: string]: RenderSpecInputOrPair
-}
-
-export type ThemeContextWithChildren =
-  React.PropsWithChildren<ThemeContext>
-
-export type RenderSpecInputOrPair =
-  RenderSpecInput | RenderSpecPair
-
-export type RenderSpecInput =
-  RenderSpecValue | RenderSpecFunction
-
-export type RenderSpecValue =
-  ContextPropsObject | null
-
-export type RenderSpecFunction = (
-  props:    ContextPropsObject,
+export type ThemeSpec<T, P> = ThemeSpecItem<T, P> | ThemeSpecPair<T, P>
+export type ThemeSpecPair<T, P> = [ThemeComponent<P>, ThemeSpecItem<T, P>]
+export type ThemeSpecItem<T, P> = Partial<P> | ThemeSpecFunction<T, P>
+export type ThemeComponent<P> = React.ComponentType<P>
+export type ThemeSpecFunction<T, P> = (
+  props:    unknown,
   ref:      React.ForwardedRef<unknown>,
-  context:  ContextPropsObject
-) => ContextPropsObject | React.ReactElement
-
-export type RenderSpecPair =
-  [RenderComponent, RenderSpecInput]
-
-export type RenderSpecInputFunction = (
-  context: ContextPropsObject
-) => RenderSpecInputOrPair
-
-export type RenderComponent =
-  React.ComponentType<ContextPropsObject>
-  // React.ComponentType<object>
-  // React.ComponentType<object & { ref: React.Ref<unknown> }>
-  // React.ComponentType<React.ForwardedRef<object>>
-
-export type RenderSpec =
-  RenderSpecInputFunction | null | string
-
-export type RenderProps = {
-  context: ThemeContext,
-  spec: RenderSpec,
-  Implementation: RenderComponent,
-  props: ContextPropsObject,
-  ref: React.ForwardedRef<unknown>
-}
-
-// export type ContextPropsWithChildren = React.PropsWithChildren<ContextPropsObject>
-
-// export type ContextProviderProps = React.ProviderProps<ContextPropsObject>
-// export type ContextProvider = React.ProviderExoticComponent<ContextProviderValue>
-// export type ContextProviderWrapper = ({ children, ...props }: ContextPropsWithChildren) => ContextProvider
-// export type ContextProviderValue = {
-//   [key: string]: unknown | RenderSpecInputOrPair
-// }
+  context:  Themeable<T>
+) => Partial<P> | React.ReactElement
 
 
-
-
-//export type ThemedType = {
-//  Context: React.Context<ContextPropsObject>,
-//  Provider: ContextProviderWrapper,
-//  Consumer: unknown,
-//  Component: unknown
-//}
