@@ -22,7 +22,6 @@ export const Themer = <T extends Record<string, unknown>>() => {
         {
           (context: Themeable<T>) => {
             let Implementation = Component
-            console.log(`rendering ${name}`)
             let spec = context[name]
             if (! spec) {
               return (
