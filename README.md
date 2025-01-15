@@ -13,7 +13,7 @@ up to eleven. Eleven. Exactly. One louder.
 
 ## Documentation
 
-Read the [full documentation](https://abw.github.io/react-one-louder/) for
+Read the [full documentation](https://badgerpower.com/react-one-louder/) for
 full details.  The abridged version is included below.
 
 ## Getting Started
