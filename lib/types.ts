@@ -7,13 +7,12 @@
 export type Themeable<T> = {
   [K in keyof T]?: ThemeSpec<T, T[K]>
 }
-
 export type ThemeSpec<T, P> = ThemeSpecItem<T, P> | ThemeSpecPair<T, P>
 export type ThemeSpecPair<T, P> = [ThemeComponent<P>, ThemeSpecItem<T, P>]
 export type ThemeSpecItem<T, P> = Partial<P> | ThemeSpecFunction<T, P>
 export type ThemeComponent<P> = React.ComponentType<P>
 export type ThemeSpecFunction<T, P> = (
-  props:    unknown,
+  props:    Record<string, unknown>,
   ref:      React.ForwardedRef<unknown>,
   context:  Themeable<T>
 ) => Partial<P> | React.ReactElement

@@ -1,8 +1,9 @@
-import React from 'react'
 import { it, expect } from 'vitest'
 import { render } from '@testing-library/react'
 import { ThemedAlert, ThemedButton, VariantButton, ThemeProvider, ThemeConfig } from '../lib/UI/index'
 import { buttonVariants } from '../lib/UI/ButtonVariants'
+import { fail } from '@abw/badger-utils'
+import { Themeable } from '@/lib/types'
 
 it(
   'default button and alert',
@@ -13,7 +14,7 @@ it(
         <ThemedAlert title="Alert" text="Groovy"/>
       </ThemeProvider>
     )
-    const button = container.querySelector('button')
+    const button = container.querySelector('button') || fail('No button')
     expect(button).toHaveTextContent('Hello World')
     const alert = container.querySelector('div.alert')
     expect(alert).toHaveClass('alert')
@@ -25,7 +26,11 @@ it(
   'themed button and alert',
   () => {
     const { container } = render(
-      <ThemeProvider Alert={{ type: 'info' }} Button={{ color: 'red' }}>
+      <ThemeProvider
+        Alert={{ type: 'info' }}
+        Button={{ color: 'red' }} //, fart: 'one' }}  // HMMM
+        // Checkbox={{ text: 'Check Me', checked: 'yes' }}
+      >
         <ThemedButton text="Hello World"/>
         <ThemedAlert title="Alert" text="Groovy"/>
       </ThemeProvider>
@@ -43,12 +48,14 @@ it(
 it(
   'spread theme options',
   () => {
-    const themeOptions: ThemeConfig = {
-      Alert: { type: 'info' },
-      Button: { color: 'red' }
+    const themeOptions: Themeable<ThemeConfig> = {
+    // const themeOptions = {
+      // Select: { bad: 'key' },
+      Alert: { type: 'info' }, // fart: 'loudly' },
+      Button: { color: 'red' },
     }
     const { container } = render(
-      <ThemeProvider {...themeOptions as ThemeConfig}>
+      <ThemeProvider {...themeOptions}>
         <ThemedButton text="Hello World"/>
         <ThemedAlert title="Alert" text="Groovy"/>
       </ThemeProvider>
@@ -70,7 +77,7 @@ it(
       <ThemeProvider
         Button={buttonVariants}
         Alert={
-          (props: object) => ({ ...props, type: 'error' })
+          props => ({ ...props, type: 'error' })
         }
       >
         <VariantButton text="Add Something" action="add"/>

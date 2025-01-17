@@ -1,7 +1,5 @@
-import React from 'react'
-
 export type ButtonProps = {
-  text: string,
+  text: string
   color?: string
 }
 
