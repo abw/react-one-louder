@@ -4,6 +4,13 @@
 //  * an object with default values, e.g. { volume: 11 }
 //  * a function which returns default values, e.g. props => ({ volume: 11 })
 
+// This is an attempt to work around the "Argument of type 'interface' is not
+// assignable to parameter of type 'interface'" problem.
+// https://timdeschryver.dev/blog/argument-of-type-interface-is-not-assignable-to-parameter-of-type-interface
+export type SomeProps<T> = {
+  [K in keyof T]?: T[K]
+}
+
 export type Themeable<T> = {
   [K in keyof T]?: ThemeSpec<T, T[K]>
 }
