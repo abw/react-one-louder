@@ -6,7 +6,16 @@ import dts from 'vite-plugin-dts'
 
 export default defineConfig(
   ({ command }) => ({
-    plugins: [react(), svgr(), dts()],
+    plugins: [
+      react(),
+      svgr(),
+      dts({
+        exclude: [
+          'test',
+          'website'
+        ],
+      })
+    ],
     publicDir: command === 'build' ? false : 'public',
     define,
     test: {
