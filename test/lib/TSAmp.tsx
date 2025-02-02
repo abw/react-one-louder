@@ -1,4 +1,3 @@
-import React from 'react'
 import { Themed } from '../../lib/index'
 
 type AmplifierProps = {

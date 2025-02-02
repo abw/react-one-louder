@@ -1,5 +1,6 @@
 import { AlertProps } from './Alert'
 import { ButtonProps } from './Button'
+import { Button2Props } from './Button2'
 import Themer from '../../../lib/Themer'
 // import { CheckboxProps } from './Checkbox'
 // import { Themeable, ThemeOptions } from '@/lib/types'
@@ -7,6 +8,7 @@ import Themer from '../../../lib/Themer'
 export type ThemeConfig = {
   Alert: AlertProps
   Button: ButtonProps
+  Button2: Button2Props
 }
 
 //export type LoudAmplifierProps = AmplifierProps & { loud?: boolean }

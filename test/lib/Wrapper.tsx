@@ -1,4 +1,3 @@
-import React from 'react'
 import Amplifier from './Amplifier'
 
 const Wrapper = () =>
