@@ -1,8 +1,11 @@
 import { createContext, forwardRef, isValidElement } from 'react'
 import { isArray, isFunction, isObject } from '@abw/badger-utils'
-import { Themeable, ThemeSpecFunction, ThemeSpecPair } from './types'
+import {
+  SomeProps, Themeable, ThemeSpecFunction, ThemeSpecItem, ThemeSpecPair
+} from './types'
 
-export const Themer = <T extends Record<string, unknown>>() => {
+// export const Themer = <T extends Record<string, unknown>>() => {
+export const Themer = <T extends SomeProps<T>>() => {
   const Context = createContext<T>({ } as T)
 
   const Provider = ({
@@ -13,7 +16,8 @@ export const Themer = <T extends Record<string, unknown>>() => {
       {children}
     </Context.Provider>
 
-  const Themed = <Props extends Record<string, unknown>>(
+  // const Themed = <Props extends Record<string, unknown>>(
+  const Themed = <Props extends SomeProps<Props>>(
     Component: React.ComponentType<Props>,
     name: string = Component.displayName || Component.name
   ) => forwardRef<unknown, Props>(
@@ -22,8 +26,9 @@ export const Themer = <T extends Record<string, unknown>>() => {
         {
           (context: Themeable<T>) => {
             let Implementation = Component
-            let spec = context[name]
-            if (! spec) {
+            const item = context[name as keyof T]
+            let spec: ThemeSpecItem<T, Props>
+            if (! item) {
               return (
                 <Component
                   ref={ref}
@@ -31,15 +36,21 @@ export const Themer = <T extends Record<string, unknown>>() => {
                 />
               )
             }
-            if (isArray(spec)) {
-              Implementation = (spec as ThemeSpecPair<T, Props>)[0]
-              spec = (spec as ThemeSpecPair<T, T[string]>)[1]
+            if (isArray(item)) {
+              Implementation = (item as ThemeSpecPair<T, Props>)[0]
+              // spec = (spec as ThemeSpecPair<T, T[string]>)[1]
+              spec = (item as ThemeSpecPair<T, Props>)[1]
+            }
+            else {
+              spec = item as ThemeSpecItem<T, Props>
             }
             if (isFunction(spec)) {
               // If it's a function then we call it with the original props,
               // any ref that needs to be forwarded and the context.  It can
               // return a React element or an object of replacement properties.
-              const result = (spec as ThemeSpecFunction<T, Props>)(props, ref, context)
+              const result = (spec as ThemeSpecFunction<T, Props>)(
+                props, ref, context
+              )
               if (isValidElement(result)) {
                 return result
               }
