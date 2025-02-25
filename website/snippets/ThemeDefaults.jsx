@@ -7,9 +7,10 @@ import React from 'react'
 // PRETEND: import { Theme } from '@abw/react-one-louder'
 
 const MyTheme = {
-  Amplifier: props => props.quiet
-    ? { volume: props.volume ?? 5  }
-    : { volume: props.volume ?? 11 }
+  Amplifier: props => ({
+    volume: props.quiet ? 5 : 11,
+    ...props,
+  })
 }
 
 const OnStage = () =>

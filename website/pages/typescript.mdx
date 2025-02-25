@@ -1,0 +1,131 @@
+import { Snippet, Example } from '@abw/badger-website'
+
+# Typescript
+
+## Typed Theme
+
+Let's assume that you've got some React components that have types (or
+interfaces) defined for their properties.  Here's one such example.
+
+<Snippet
+  file="Alert.tsx"
+  caption="Alert.tsx"
+  expand
+/>
+
+You've probably got a number of these components that you'll want to combine
+into a single theme type.  This defines the properties that can be passed
+to the theme provider to customise your components.
+
+<Snippet
+  file="UIProps.ts"
+  caption="MyUIProps.ts"
+  expand
+/>
+
+You can then import the `Themer` function and call it to create your own
+theming engine.  Specify your combined theme type as a type generic.
+
+<Snippet
+  file="UITheme.tsx"
+  highlightLines="4"
+  caption="MyUITheme.ts"
+  expand
+/>
+
+This returns an object that has a `Provider` context provider and a `Themed`
+Higher Order Component wrapper function.  You might choose to give them
+explicit named exports, as shown here.
+
+You can then use the `Themed` function (aliased to `MyUIThemedComponent` here)
+to create a wrapper around your UI components.
+
+<Snippet
+  file="UIComponent.tsx"
+  caption="MyUIComponents.ts"
+  highlightLines="6-8"
+  expand
+/>
+
+
+Use the provider to wrap your application.  Any properties that
+you specify to the provider should match those in the composite theme typed.
+
+<Snippet
+  file="UIProvider.tsx"
+  expand
+/>
+
+Inside the scope of the provider, your themed components will be fed the
+default values.  In this example, the `MyThemedButton` component on line 7
+will have the `color` property set to `blue`.
+
+It can be a bit cumbersome listing all the theme configuration options as
+separate properties passed to the provider component.  You can define them
+separately and then spread them into the provider properties.  You'll need to
+cast them to your theme config type.
+
+<Snippet
+  file="UIProvider2.tsx"
+  highlightLines="4,14"
+  expand
+/>
+
+## Work in Progress
+
+This library was originally written to make it easy to retrospectively apply
+properties to a library of React UI components.  It was written in "regular"
+Javascript-flavoured React and was intended to be used as the theming engine
+for another "regular" Javascript-flavoured React UI library.  It worked well.
+It did the job it was supposed to do.  It made some hard things possible, even
+easy.
+
+The problem is that all the cool kids today want to use Typescript, myself
+included (although it's been a long time since I was one of the cool kids).
+
+It's only fair to state at this point that I have somewhat mixed feelings
+about Typescript.  There's a lot to like about it, but I personally don't buy
+into all of the fanboy hype that surrounds it. Yes, it's great to have the
+option to add static types to Javascript and there's no doubt that it can help
+to catch silly mistakes that might otherwise slip through the net.  But it's
+good to remember that Typescript is really just a *compile-time* typing system
+that's bolted onto an untyped dynamic language.
+
+<div class="grid-3 gap-8">
+  ![old man](old-man.jpeg)
+  <div class="cols-2">
+    The "compile-time" part is important because Typescript **does not exist** at
+    runtime.  The types are removed from your code during the transpilation from
+    Typescript to Javascript.  It's like having someone checking ID at the door
+    to make sure everyone in the club is over 18.  It gives the sense of security
+    but doesn't stop the under-18s from sneaking in through the side door.
+
+    If you want true type safety then use a language with a proper type system like
+    Rust or Haskell.  There's a saying that if your Rust program compiles then it
+    probably works.  If your Typescript program compiles then there's a good chance
+    that it still doesn't work, because it's Javascript under the hood with all
+    its flaws.  Typescript makes Javascript better, but nowhere near perfect.
+  </div>
+</div>
+
+
+But, "old man yells at clouds" type-safety rant aside, Typescript has one
+killer feature that is worth the price of admission: the IDE / Intellisense
+support.  Yes, I know you can do this with JSDoc (and have done so myself),
+but while you're doing that you might as well convert it to Typescript and be
+done with it.
+
+However, writing Higher Order Components for React that also work
+with Typescript is *challenging* to say the least.  At least it is for me.
+If I was writing this from scratch with Typescript in mind then I might do
+things slightly differently.  But I'm not, so I can't.  I have to, and want to,
+keep this module working the way it always has (more or less), because it works
+well (more or less).  But it is based on the premise of injecting properties
+into React components at runtime, not compile time.  As a result, it's cutting
+across the grain of how Typescript works to a certain degree.
+
+So be warned that Typescript purists might want to yak into their almond milk
+decaffeinated lattes when they use this module.  Sorry about that.  I did my
+best with the limited knowledge and skills available to me at the time.  If
+you have any suggestions about how it can be improved then please let me know.
+
